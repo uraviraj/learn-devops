@@ -1,0 +1,29 @@
+pipeline {
+    agent {
+        label "agent1"
+    }
+    environment {
+        MVN_HOME='/app/maven'
+        JAVA_HOME='/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.252.b09-2.el7_8.x86_64'
+        PATH="$PATH:$MVN_HOME/bin:$JAVA_HOME/bin"
+    }
+    stages {
+        stage("scm checkout") {
+            steps {
+                git branch: 'master',
+                credentialsId: 'git-cred-id',
+                url: 'https://github.com/uraviraj/learn-devops.git'
+            }
+        }
+        stage("build and package code") {
+            steps{
+                sh "cd devops-app && mvn install"
+            }
+        }
+        stage("upload artifact to nexus") {
+            steps{
+                sh "cd devops-app && mvn deploy"
+            }
+        }
+    }
+}
