@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage("scm checkout") {
             steps {
-                git branch: '${params.branch_name}',
+                git branch: "${params.branch_name}",
                 credentialsId: 'git-cred-id',
                 url: 'https://github.com/uraviraj/learn-devops.git'
             }
