@@ -22,7 +22,7 @@ pipeline {
         }
         stage("upload artifact to nexus") {
             steps{
-                sh "cd devops-app && mvn deploy"
+                sh "cd devops-app && mvn release:perform"
             }
         }
     }
