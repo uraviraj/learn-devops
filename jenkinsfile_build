@@ -2,7 +2,9 @@ pipeline {
     agent {
         label "agent1"
     }
-    parameters { string(name: 'branch_name', defaultValue: 'develop', description: '') }
+    parameters { string(name: 'branch_name', defaultValue: 'develop', description: '')
+                 choice(name: 'env', choices: ['dev', 'teet', 'prod'], description: 'name of environment') 
+                }
     environment {
         MVN_HOME='/app/maven'
         JAVA_HOME='/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.252.b09-2.el7_8.x86_64'
