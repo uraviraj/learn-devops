@@ -6,8 +6,7 @@ node {
         JAVA_HOME='/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.252.b09-2.el7_8.x86_64'
         PATH="$PATH:$MVN_HOME/bin:$JAVA_HOME/bin"
     }
-    stages {
-        stage("scm checkout") {
+    stage("scm checkout") {
             steps {
                 git branch: "${params.branch_name}",
                 credentialsId: 'git-cred-id',
@@ -24,5 +23,4 @@ node {
                 sh "cd devops-app && mvn -s /app/maven/settings.xml deploy"
             }
         }
-    }
 }
