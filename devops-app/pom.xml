@@ -67,11 +67,11 @@
 <distributionManagement>
     <snapshotRepository>
       <id>nexus-snapshots</id>
-      <url>http://35.193.234.79:8081/repository/devops-snapshots/</url>
+      <url>http://35.202.23.138:8081/repository/devops-snapshots/</url>
     </snapshotRepository>
     <repository>
       <id>nexus-releases</id>
-      <url>http://35.193.234.79:8081/repository/devops-maven/</url>
+      <url>http://35.202.23.138:8081/repository/devops-maven/</url>
     </repository>
   </distributionManagement>
 
